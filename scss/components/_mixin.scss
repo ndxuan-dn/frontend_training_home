@@ -1,0 +1,15 @@
+@mixin button($width, $padding, $radius, $textcolor, $bordercolor, $backgroundcolor) {
+    text-transform: uppercase;
+    width: $width;
+    padding: $padding;
+  
+    @if $radius != 0 {
+      border-radius: $radius;
+    }
+
+    border: 1px solid $bordercolor;
+
+    color: $textcolor;
+    background-color: $backgroundcolor;
+
+}

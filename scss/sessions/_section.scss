@@ -1,0 +1,26 @@
+.section {
+    .container {
+        text-align: center;
+        max-width: $container_maxwidth;
+        width: 100%;
+        margin: auto;
+        padding-top: 50px;
+        .title {
+            font-family: $base_fontfamily;
+            font-style: normal;
+            font-weight: 600;
+            font-size: $section_title_fontsize;
+            line-height: $section_title_lineheight;
+            color: $section_title_color;
+            margin-bottom: px2rem(5);
+        }
+        .description {
+            font-family: $base_fontfamily;
+            font-style: normal;
+            font-weight: 400;
+            font-size: px2rem(18);
+            line-height: px2rem(22);
+            color: $base_color;
+        }
+    }
+}
