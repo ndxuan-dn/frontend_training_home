@@ -1,0 +1,31 @@
+//- extends component/boxaler.pug 
+//- block alertctn
+//-     h3 Canh bao 
+//-     p Co virus
+
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+        title Document
+    body
+        .box
+            .box-wraper 
+                h3.box-title Day la title 
+                p.box-body Day la phan content 
+                a.box-btn More
+                input(type="text", value="day la value")
+        .swiper.mySwiper
+            .swiper-wrapper
+                .swiper-slide Slider 1
+                .swiper-slide Slider 2
+                .swiper-slide Slider 3
+                .swiper-slide Slider 4
+                .swiper-slide Slider 5
+                .swiper-slide Slider 6
+
+        script(src="https://code.jquery.com/jquery-3.7.0.js") 
+        script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js") 
+        script(src="js/myscript.js") 

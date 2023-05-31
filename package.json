@@ -6,6 +6,7 @@
   "dependencies": {
     "browser-sync": "^2.29.3",
     "gulp": "^4.0.2",
+    "gulp-pug": "^5.0.0",
     "gulp-sass": "^5.1.0",
     "sass": "^1.62.1"
   },

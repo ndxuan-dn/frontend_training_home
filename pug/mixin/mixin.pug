@@ -1,0 +1,20 @@
+mixin card(image, title, text, link)
+    .card 
+        .card-wrapper 
+            .card-img 
+                img(src=image, alt=title, width="400", height="300")
+            h3.card-title=title 
+            p.card-body=text 
+            a.btn(href="#")=link
+
+mixin boxGenk(image, title)
+    .box
+        .box-wrapper 
+            .box-img 
+                img(src=image, alt=title, width="176", height="110")
+            h3.box-title=title
+
+mixin navigation(list)
+    -
+    each item in list
+        li= item
