@@ -1,0 +1,41 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "sinhviens": [
+    {
+      "id": 1,
+      "tensinhvien": "Ung Hoang Phuc",
+      "lop": "12tk2",
+      "namsinh": "1998"
+    },
+    {
+      "id": 2,
+      "tensinhvien": "Tran Truong Gian",
+      "lop": "11tk7",
+      "namsinh": "1991"
+    },
+    {
+      "id": 3,
+      "tensinhvien": "Vo Hoai Linh",
+      "lop": "10tk1",
+      "namsinh": "1975"
+    },
+    {
+      "tensinhvien": "xuanngoduc",
+      "lop": "12tk111",
+      "namsinh": "1990",
+      "id": 4
+    },
+    {
+      "tensinhvien": "xua22goduc",
+      "lop": "11k333",
+      "namsinh": "1990",
+      "id": 8
+    }
+  ]
+}

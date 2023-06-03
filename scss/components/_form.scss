@@ -1,0 +1,14 @@
+.form {
+    form {
+        label {
+            display: flex;
+            justify-content: space-between;
+            max-width: 255px;
+            margin-bottom: 5px;
+            flex-wrap: wrap;
+        }
+        .error {
+            color: red;
+        }
+    }
+}

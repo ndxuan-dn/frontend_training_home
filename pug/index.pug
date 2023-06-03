@@ -9,6 +9,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
+        link(rel="stylesheet", href="css/style.css")
         title Document
     body
         .box
@@ -25,7 +26,27 @@ html(lang="en")
                 .swiper-slide Slider 4
                 .swiper-slide Slider 5
                 .swiper-slide Slider 6
+        a(class="showform") Show Form 
+
+        .form 
+            form#form
+                label(for="tensinhvien")
+                    | tensinhvien: 
+                    input#tensinhvien(type="text", name="tensinhvien", minlength="8", maxlength="10", required)
+                label(for="lop") 
+                    | lop: 
+                    input#lop(type="text", name="lop", required)
+                label(for="namsinh")
+                    | namsinh: 
+                    input#namsinh(type="datetime", name="namsinh", required)
+                
+                button(type="submit")
+                    | Them Sinh vien
+            
 
         script(src="https://code.jquery.com/jquery-3.7.0.js") 
         script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js") 
+        //script(src="js/libraries/additional-methods.min.js")
+        script(src="js/libraries/jquery.validate.min.js")
+        script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js") 
         script(src="js/myscript.js") 
