@@ -15,3 +15,8 @@
 // var input = $('input');
 // console.log(input.val('noi dung duoc thay doi'));
 var swiper = new Swiper(".mySwiper", {});
+
+// var btn = document.getElementsByClassName('box-btn')[0];
+// btn.onclick = (e) => {
+//     console.log(e.target.text);
+// }
