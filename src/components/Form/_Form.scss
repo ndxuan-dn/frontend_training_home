@@ -1,0 +1,37 @@
+.form {
+    
+
+    form#user-input-form {
+        
+        display: flex;
+        flex-wrap: wrap;
+
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+
+        label {
+            padding: 12px;
+            font-weight: 700;
+        }
+
+        input {
+            border: none;
+            flex: 1;
+            padding: 12px;
+            text-align: right;
+            outline: none;
+        }   
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            background-color: #FFB84C;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+    }
+
+    
+}

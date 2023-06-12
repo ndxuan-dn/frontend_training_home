@@ -1,0 +1,71 @@
+#list {
+    margin-top: 16px;
+    table {
+        border-collapse: collapse;
+        border-radius: 4px;
+        overflow: hidden;
+        width: 100%;
+
+        th, td {
+            padding: 1em;
+            background-color: #ccc;
+            border-bottom: 1px solid white;
+        }
+
+        thead {
+            font-weight: 700;
+        }
+        tbody {
+          tr {     
+            td {
+                &:first-child {
+                    width: 16px;
+                }
+
+
+                &:last-child {
+
+                    position: relative;
+                    width: 180px;
+                    button {
+                        position: absolute;
+                        visibility: hidden;
+                        padding: 12px 24px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background-color: transparent;
+
+                        border: none;
+
+                        &:first-child {
+                            right: 48px;
+                        }
+                        &:last-child {
+                            right: 0;
+                        }
+                    }
+
+
+                    
+
+                    
+                }
+            }
+    
+            &:hover {
+                td {
+                
+                 &:last-child {
+                    button {
+                        visibility: visible;
+                    }
+                }
+                }
+
+
+
+            }
+          }
+        }
+    }
+}
