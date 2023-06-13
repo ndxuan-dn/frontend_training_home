@@ -1,50 +1,51 @@
-import axios from "axios";
 import { useState } from "react";
 
-import { URL } from "../../contans/contans";
 
-function StudenItem({id, name}) {
-    const [isEdit, setEdit] = useState(false);
-    const [newName, setNewName] = useState(name)
+function StudenItem({id, name, editCompleted, deleteCompleted}) {
+    const [isEdit, setEdit] = useState(false)
+    const [renderName, setRenderName] = useState(name)
 
-    function onChange(event) {
-        setNewName(event.target.value)
+    function cancelEdit() {
+        setRenderName(name)
+
+        setEdit(false)
     }
 
-
-    function onEdit() {
-        console.log("editting...")
-
+    function openEdit() {
         setEdit(true)
     }
 
-    function onDelete() {
-        console.log("delete button on clicked")
+    function onChange(event) {
+        setRenderName(event.target.value)   
     }
 
-    
+    function handlerCompleted() {
+
+        const data = { name : renderName}
         
+        editCompleted(id, data)
 
-    function cancel() {
-        setEdit(false)
-    }
+        setRenderName(data.name)
 
-    function completed() {
-        const address = URL + "/" + id
-        const name = newName
-        axios.put(address, {name}).then(response => console.log(response)).catch(error => console.log(error))
         setEdit(false)
 
     }
+
+    function handlerDelete() {
+
+        deleteCompleted(id)
+        
+    }
+
 
 
     return (
         <tr>
             <td>{id}</td>
-            <td>{isEdit ? <input placeholder={name} onChange={event => onChange(event)}/> : name}</td>
+            <td>{isEdit ? <input value={renderName} onChange={event => onChange(event)}/> : renderName}</td>
             <td>
-                <button onClick={isEdit ? cancel : onEdit }>{isEdit ? <i className="fa-solid fa-x"></i> : <i className="fa-solid fa-pen"></i>}</button>
-                <button onClick={isEdit ? completed : onDelete}>{isEdit ? <i className="fa-solid fa-check"></i> : <i className="fa-solid fa-trash"></i>}</button>
+                <button onClick={isEdit ? cancelEdit : openEdit}>{isEdit ? "Cancel" : "Edit" }</button>
+                <button onClick={isEdit ? handlerCompleted : handlerDelete} disabled = { isEdit && (renderName.trim() === name.trim() || !renderName.length) } >{isEdit ? "Comfirm": "Delete"}</button>
             </td>
         </tr>
     )

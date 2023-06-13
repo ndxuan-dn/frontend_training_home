@@ -3,43 +3,90 @@ import { useState, useEffect } from "react";
 
 import { URL } from "../../contans/contans";
 import List from "../List";
-import StudenItem from "../StudenItem";
 
 export default function Form() {  
     const [name, setName] = useState("")
     const [status, setStatus] = useState("typing")
     const [list, setList] = useState([])
 
+    
+
     // Init Data List
     useEffect(() => {
         axios.get(URL).then(response => setList(response.data)).catch(error => console.log(error))
     }, [])
 
+    console.log()
+
+    // Sumbmit
     function onSubmit(event) {
-        event.preventDefault();     
+        event.preventDefault();
+
         setStatus("submitting")
 
-        const data = {name}
+        const data = { name }
 
         // post API
         axios.post(URL, data)
             .then(response => {
-                if (response.status === 201) {
-                    
+
                     setStatus("success")
-                    // clear input value
+                    // clear value input when submited
                     setName("")
-                }
-                console.log(response)
+                  
+                    setList(prev => [...prev, {id: list.length === 0 ? 1 : list[list.length -1].id + 1 , name}])
+            
+                    console.log(response)
             })
             .catch(error => console.log(error))
-
-        setList(prev => [...prev, {id: list.length + 1, name}])
     }
 
+
+
+    // input change value
     function onChange(event) {
         setName(event.target.value)
     }
+    // handler Edit 
+
+    function editCompleted(id, data) {
+        const newData = list.filter(item => {
+            if (item.id === id) item.name = data.name; 
+            return true;   
+        })
+
+
+        const editAdress = URL + "/" + id
+        axios.put(editAdress, data)
+            .then(response => {
+
+                    setList(newData)
+
+                    console.log(response)
+
+                })
+            .catch(error => console.log(error)) 
+    }
+
+    function deleteCompleted(id) {
+
+        const newData = list.filter(item => {
+            if(item.id !== id) return true; 
+        })
+
+        const deleteAdress = URL + "/" + id
+        axios.delete(deleteAdress)
+            .then(response => {
+               
+                    console.log(response)
+
+                    setList(newData)
+                
+                })
+            .catch(error => console.log(error))
+        
+    }
+
 
     return (
         <div className="form">
@@ -54,7 +101,7 @@ export default function Form() {
                     />
                 <button className="btn" id="btn-add" disabled={ name.length === 0 || status === "submitting" }>add</button>
             </form>
-            <List list={list}/>
+            <List list={list} editCompleted={editCompleted} deleteCompleted={deleteCompleted}/>
         </div>
     )
 }
