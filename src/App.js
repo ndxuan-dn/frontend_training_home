@@ -17,7 +17,6 @@ useEffect(() => {
 }, [])
 
 
-
 // Handler submit
   function handlerSubmit(data) {
     setList(prev => [ ...prev, { id: list.length == 0 ? 1 : list[list.length -1].id + 1, name: data.name }])
@@ -33,12 +32,24 @@ useEffect(() => {
     axios.delete(deleteAddress)
   }
 
+// HandlerEdit 
+  function handlerEdit(id, data) {
+    const newData = list.filter(item => {
+      if (item.id === id) item.name = data.name
+      return true
+    })
 
+    setList(newData)
+
+    const editAdress = address + "/" + id
+
+    axios.put(editAdress, data)
+  }
   return (
     <div className="App">
       <div className="container">
         <Form handlerSubmit={handlerSubmit}/>
-        <List data={list} handlerDelete={handlerDelete}/>
+        <List data={list} handlerDelete={handlerDelete} handlerEdit={handlerEdit}/>
       </div> 
     </div>
   );

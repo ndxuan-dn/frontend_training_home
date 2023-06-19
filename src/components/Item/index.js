@@ -2,11 +2,17 @@ import { useState } from "react";
 
 import Modal from "../../view/Modal";
 
-function StudenItem({ id, name, handlerDelete }) {
+function StudenItem({ id, name, handlerDelete, handlerEdit }) {
 
     function handlerAgree() {
         handlerDelete(id)
     }
+
+    function sendData(data) {
+        handlerEdit(id, data)
+    }
+
+
 
 
     return (
@@ -14,8 +20,8 @@ function StudenItem({ id, name, handlerDelete }) {
             <td>{id}</td>
             <td>{name}</td>
             <td>
-                <div>
-                    <Modal role="Edit"/>
+                <div className="controls">
+                    <Modal name={name} role="Edit" sendData={sendData}/>
                     <Modal role="Delete" handlerAgree={handlerAgree}/>
                 </div>
             </td>

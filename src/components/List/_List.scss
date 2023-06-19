@@ -35,18 +35,10 @@
                 td {
                     
                     padding: 0 1rem;
-                    
-                    &:last-child {
 
-                        div {
-                            display: flex;
-                            justify-content: space-between;
-                            button {
-                                border: none;
-                                // background-color: transparent;
-                            }
-                        }
-            
+                    .controls {
+                        display: flex;
+                        justify-content: space-between;
                     }
                     
                 }
