@@ -1,71 +1,56 @@
 #list {
     margin-top: 16px;
+   
     table {
         border-collapse: collapse;
-        border-radius: 4px;
-        overflow: hidden;
-        width: 100%;
 
+        width: 100%;
+       
         th, td {
-            padding: 1em;
-            background-color: #ccc;
-            border-bottom: 1px solid white;
-        }
+            border-bottom: 1px solid #ccc;
+            &:nth-child(1) {
+                width: 1%;
+            }
+
+            &:nth-child(2) {
+ 
+            }
+
+            &:nth-child(3) {
+                width: 30%;
+            }
+
+
+        }   
 
         thead {
             font-weight: 700;
-        }
-        tbody {
-          tr {     
             td {
-                &:first-child {
-                    width: 16px;
-                }
-
-
-                &:last-child {
-
-                    position: relative;
-                    width: 180px;
-                    button {
-                        position: absolute;
-                        visibility: hidden;
-                        padding: 12px 24px;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        background-color: transparent;
-
-                        border: none;
-
-                        &:first-child {
-                            right: 120px;
-                        }
-                        &:last-child {
-                            right: 0;
-                        }
-                    }
-
-
-                    
-
-                    
-                }
+                padding: 1rem;
             }
-    
-            &:hover {
+        }
+        
+        tbody {
+            tr {
                 td {
-                
-                 &:last-child {
-                    button {
-                        visibility: visible;
+                    
+                    padding: 0 1rem;
+                    
+                    &:last-child {
+
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                            button {
+                                border: none;
+                                // background-color: transparent;
+                            }
+                        }
+            
                     }
+                    
                 }
-                }
-
-
-
             }
-          }
         }
     }
 }

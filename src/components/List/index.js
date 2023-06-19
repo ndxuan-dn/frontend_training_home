@@ -1,9 +1,8 @@
-import StudenItem from "../StudenItem"
+import Item from "../Item"
 
-export default function List({ list, editCompleted, deleteCompleted }) {
+export default function List({ data, handlerDelete }) {
 
-
-    const listRender = list && list.map(item => <StudenItem key={item.id} id={item.id} name={item.name} editCompleted={editCompleted} deleteCompleted={deleteCompleted}/>)
+    const listRender = data && data.map(item => <Item key={item.id} id={item.id} name={item.name} handlerDelete={handlerDelete}/>)
     return (
         <div id="list">
                 <table id="list-table">

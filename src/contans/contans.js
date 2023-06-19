@@ -1,5 +1,7 @@
-export const URL = "http://localhost:3004/studens";
+import axios from "axios";
 
-export const STUDENT = ""
+export const URL = "http://localhost:3004";
+export const PATH = URL + "/" + "studens"
 
-export const EDITTING = "editting"
+export const DEFAULT_TIME_OUT = 60000;
+

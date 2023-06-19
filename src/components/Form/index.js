@@ -1,107 +1,54 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
-import { URL } from "../../contans/contans";
-import List from "../List";
-
-export default function Form() {  
+import { PATH } from "../../contans/contans";
+export default function Form({ handlerSubmit }) {  
     const [name, setName] = useState("")
-    const [status, setStatus] = useState("typing")
-    const [list, setList] = useState([])
+    const [status, setStatus] = useState("")
 
     
-
-    // Init Data List
-    useEffect(() => {
-        axios.get(URL).then(response => setList(response.data)).catch(error => console.log(error))
-    }, [])
-
-    console.log()
-
-    // Sumbmit
-    function onSubmit(event) {
-        event.preventDefault();
-
-        setStatus("submitting")
-
-        const data = { name }
-
-        // post API
-        axios.post(URL, data)
-            .then(response => {
-
-                    setStatus("success")
-                    // clear value input when submited
-                    setName("")
-                  
-                    setList(prev => [...prev, {id: list.length === 0 ? 1 : list[list.length -1].id + 1 , name}])
-            
-                    console.log(response)
-            })
-            .catch(error => console.log(error))
-    }
-
-
-
-    // input change value
+    // onChange input
     function onChange(event) {
         setName(event.target.value)
-    }
-    // handler Edit 
+        setStatus("typing")
 
-    function editCompleted(id, data) {
-        const newData = list.filter(item => {
-            if (item.id === id) item.name = data.name; 
-            return true;   
-        })
+    } 
+    // form on submit
+    function onSubmit(event) {
+        event.preventDefault();
+        setStatus("submitting")
 
+        const data = {
+            name
+        }
 
-        const editAdress = URL + "/" + id
-        axios.put(editAdress, data)
-            .then(response => {
-
-                    setList(newData)
-
-                    console.log(response)
-
-                })
-            .catch(error => console.log(error)) 
-    }
-
-    function deleteCompleted(id) {
-
-        const newData = list.filter(item => {
-            if(item.id !== id) return true; 
-        })
-
-        const deleteAdress = URL + "/" + id
-        axios.delete(deleteAdress)
-            .then(response => {
-               
-                    console.log(response)
-
-                    setList(newData)
-                
-                })
+        axios.post(PATH, data)
+            .then(res => {
+                if(res.status === 201) {
+                    handlerSubmit(data)
+                    setStatus("success")
+                    setName("")     
+                }
+            })
             .catch(error => console.log(error))
-        
+            .finally(() => {
+            setStatus("ready for typing")   
+        })              
     }
-
 
     return (
         <div className="form">
-            <form id="user-input-form" onSubmit={event => onSubmit(event)}>
+            <form id="user-input-form" onSubmit={onSubmit}>
                 <label>Name</label>
                 <input 
                     className="user-input"
                     placeholder="Enter Name ..."
                     value={name}
                     onChange={event => onChange(event)}
-                    disabled = {status === "submitting"}
+                    disabled={status === "submitting"}
                     />
-                <button className="btn" id="btn-add" disabled={ name.length === 0 || status === "submitting" }>add</button>
+                <button className="btn" id="btn-add" onClick={onSubmit} disabled={!name || status === "submitting"}>Submit</button>
             </form>
-            <List list={list} editCompleted={editCompleted} deleteCompleted={deleteCompleted}/>
         </div>
     )
 }
