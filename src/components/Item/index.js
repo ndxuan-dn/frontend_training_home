@@ -1,6 +1,7 @@
 import { useState } from "react";
+import DeleteModal from "../../view/Modal/Delete";
 
-import Modal from "../../view/Modal";
+
 
 function StudenItem({ id, name, handlerDelete, handlerEdit }) {
 
@@ -21,8 +22,7 @@ function StudenItem({ id, name, handlerDelete, handlerEdit }) {
             <td>{name}</td>
             <td>
                 <div className="controls">
-                    <Modal name={name} role="Edit" sendData={sendData}/>
-                    <Modal role="Delete" handlerAgree={handlerAgree}/>
+                    <DeleteModal />
                 </div>
             </td>
         </tr>
@@ -30,6 +30,3 @@ function StudenItem({ id, name, handlerDelete, handlerEdit }) {
 }
 
 export default StudenItem;
-
-
-// disabled = { isEdit && (renderName.trim() === name.trim() || !renderName.length) }

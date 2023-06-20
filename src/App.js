@@ -6,6 +6,8 @@ import List from "./components/List";
 import { URL } from "./contans/contans";
 import { useEffect, useState } from "react";
 
+
+
 export default function App() {
   const path = "studens"
   const address = URL + "/" + path
