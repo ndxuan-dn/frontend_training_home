@@ -1,56 +1,35 @@
-import axios from "axios";
-import "./App.scss"
-import Form from "./components/Form";
-import List from "./components/List";
 
-import { URL } from "./contans/contans";
-import { useEffect, useState } from "react";
+import React,{ useState, useEffect } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import StudentManagement from './studentList';
+import ReactHookForm from './reactHookForm';
 
-export default function App() {
-  const path = "studens"
-  const address = URL + "/" + path
-  const [list, setList] = useState([])
+function App() {
 
-// init list
-useEffect(() => {
-  axios.get(address).then(res => setList(res.data)).catch(error => console.log(error))
-}, [])
-
-
-// Handler submit
-  function handlerSubmit(data) {
-    setList(prev => [ ...prev, { id: list.length == 0 ? 1 : list[list.length -1].id + 1, name: data.name }])
-  }
-
-// Handler Delete 
-  function handlerDelete(id) {
-    const newData = list.filter(item =>  item.id !== id)
-    setList(newData)
-
-    const deleteAddress = address + "/" + id 
-
-    axios.delete(deleteAddress)
-  }
-
-// HandlerEdit 
-  function handlerEdit(id, data) {
-    const newData = list.filter(item => {
-      if (item.id === id) item.name = data.name
-      return true
-    })
-
-    setList(newData)
-
-    const editAdress = address + "/" + id
-
-    axios.put(editAdress, data)
-  }
   return (
     <div className="App">
-      <div className="container">
-        <Form handlerSubmit={handlerSubmit}/>
-        <List data={list} handlerDelete={handlerDelete} handlerEdit={handlerEdit}/>
-      </div> 
+
+      <nav>
+        <ul>
+          <li><Link to="/react-hook-form">Vi du ve React hook form</Link></li>
+          <li><Link to="/student-management">Quan Ly sinh vien</Link></li>
+        </ul>
+      </nav>
+
+
+      <Routes>
+        <Route path='/' element={<StudentManagement/>} />
+        <Route path='/student-management' element={<StudentManagement/>} />
+        <Route path='/react-hook-form' element={<ReactHookForm/>} />
+
+      </Routes>
     </div>
   );
 }
+
+export default App;
+
+
+// firebase login
+// firebase init
+// firebase deploy

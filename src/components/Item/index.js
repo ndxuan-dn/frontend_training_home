@@ -13,8 +13,6 @@ function StudenItem({ id, name, handlerDelete, handlerEdit }) {
     }
 
 
-
-
     return (
         <tr>
             <td>{id}</td>
@@ -22,7 +20,12 @@ function StudenItem({ id, name, handlerDelete, handlerEdit }) {
             <td>
                 <div className="controls">
                     <Modal name={name} role="Edit" sendData={sendData}/>
-                    <Modal role="Delete" handlerAgree={handlerAgree}/>
+                    <Modal role="Delete" handlerAgree={handlerAgree}>
+                        <div>
+                            <h3>Custom contents</h3>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a typ</p>
+                        </div>
+                    </Modal>
                 </div>
             </td>
         </tr>

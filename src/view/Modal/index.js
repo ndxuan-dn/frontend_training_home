@@ -3,7 +3,7 @@ import  { useState, useEffect } from "react"
 
 
 
-const Modal = ({ role, handlerAgree, sendData }) => {
+const Modal = ({ role, handlerAgree, sendData, children}) => {
     const [isOpen, setOpen] = useState(false)
 
     function closeModal() {
@@ -32,8 +32,9 @@ const Modal = ({ role, handlerAgree, sendData }) => {
             <button className="btn" onClick={openModal}>
                 {role}
             </button>
-            {isOpen && <div className="modal">
-¥
+            {isOpen && 
+            <div className="modal">
+                {children}
             </div>}
             
         </div>
