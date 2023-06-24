@@ -7,7 +7,7 @@ const List = () => {
     return (
         <div>
             <ul>
-            {render}
+                {render}
             </ul>
             
         </div>

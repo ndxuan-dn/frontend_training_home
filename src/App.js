@@ -1,8 +1,8 @@
 import "./App.scss"
+import { Routes, Route } from 'react-router-dom';
 import Sidebar from "./components/Sidebar";
-import Form from "./components/Form";
-import List from "./components/List";
-
+import Students from "./components/Students";
+import Items from "./components/Items";
 
 
 export default function App() {
@@ -12,10 +12,10 @@ export default function App() {
                 <div className="students-manager">
                     <Sidebar />
                     <div className="contents">
-                        <Form />
-                        <List />
-
-       
+                        <Routes>
+                            <Route path="/students" element={<Students/>}></Route>
+                            <Route path="/items" element={<Items/>}></Route>
+                        </Routes>
                     </div>
                 </div>
             </div>

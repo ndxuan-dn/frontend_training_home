@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 
-
 export default function Sidebar () {
-    
-
     return (
         <div id="sidebar">
             <div className="header">
@@ -16,10 +13,10 @@ export default function Sidebar () {
                         <Link to="/">Schools</Link>
                     </li>
                     <li>
-                        <Link to="/">Class</Link>
+                        <Link to="/items">Item</Link>
                     </li>
                     <li>
-                        <Link to="/">Students</Link>
+                        <Link to="/students">Students</Link>
                     </li>
                 </ul>
             </div>
