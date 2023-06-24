@@ -1,29 +1,25 @@
-import { useForm } from "react-hook-form";
+
+import { useForm } from "react-hook-form"
+import { useDispatch, useSelector } from "react-redux";
+import { add } from "../../modules/redux/actions";
 
 
 
-const Form = () => {
-    const {
-        register,
-        handlerSubmit,
-        watch, 
-        formState: { error }, 
-    } = useForm()
+export default function Form() {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm()
 
-    const onSubmit = (data) => console.log(data)
-
-    console.log(watch("example"))
-
+    const value = useSelector((state) => state)
+    const dispatch = useDispatch();
+    const onSubmit = (data) => dispatch(add(data))
 
     return (
-        <div>
-            <form>
-                <label>Name</label>
-                <input />
-                <button >Submit</button>
+        <div className="form">
+            <form id="form" onSubmit={handleSubmit(onSubmit)}>
+                <label htmlFor="name">Name</label>
+                <input defaultValue="" {...register("name")}/>
+                <button>Submit</button>
             </form>
+            
         </div>
     )
 }
-
-export default Form;

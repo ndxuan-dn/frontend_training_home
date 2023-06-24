@@ -1,25 +1,31 @@
-const Sidebar = () => {
-  return (
-    <div id="sidebar">
-      <h1>Students Management by khunglongdangyeu</h1>
-      <div>
-        <form>
-            <input />
-            <button>Search</button>
-        </form>
-      </div>
-        <nav>
-            <ul>
-                <li>
-                    Students
-                </li>
-                <li>
-                    Class
-                </li>
-            </ul>
-        </nav>
-    </div>
-  );
-};
+import { Link } from "react-router-dom";
 
-export default Sidebar;
+
+export default function Sidebar () {
+    
+
+    return (
+        <div id="sidebar">
+            <div className="header">
+                {/* <image className="avatar"></image> */}
+                <p className="username">Hi, Tran Duc Phuc!</p>
+            </div>
+            <div className="body">
+                <ul>
+                    <li>
+                        <Link to="/">Schools</Link>
+                    </li>
+                    <li>
+                        <Link to="/">Class</Link>
+                    </li>
+                    <li>
+                        <Link to="/">Students</Link>
+                    </li>
+                </ul>
+            </div>
+            <div className="footer">
+                <p>create by KLDY</p>
+            </div>
+        </div>
+    )
+}
