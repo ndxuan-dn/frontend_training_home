@@ -1,15 +1,20 @@
 import { useDispatch } from "react-redux";
-import { deleteItem } from "../../modules/redux/actions";
 import Modal from "../../pages/Modal";
+import { deleteStudentsSync } from "../../modules/redux/reducers";
 
-const Item = ({ name }) => {
-    const dispatch = useDispatch();
+const Item = ({ id, name }) => {
+
+    const dispath = useDispatch();
+    
+    const handleDelete = () => {
+        dispath(deleteStudentsSync({id}))
+    }
 
     return (
         <li>
             <div>
                 <p>{name}</p>
-                <button onClick={() => dispatch(deleteItem(name))}>Delete</button>
+                <button onClick={handleDelete}>Delete</button>
                 <Modal />
             </div>
         </li>

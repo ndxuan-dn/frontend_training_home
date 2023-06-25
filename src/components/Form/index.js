@@ -1,16 +1,18 @@
-
+import axios from "axios";
+import { createStudentsSync } from "../../modules/redux/reducers";
 import { useForm } from "react-hook-form"
-import { useDispatch, useSelector } from "react-redux";
-import { add } from "../../modules/redux/actions";
-
+import { useDispatch } from "react-redux";
 
 
 export default function Form() {
+    const dispath = useDispatch();
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm()
 
-    const value = useSelector((state) => state)
-    const dispatch = useDispatch();
-    const onSubmit = (data) => dispatch(add(data))
+    const onSubmit = (data) => {
+        dispath(createStudentsSync(data))
+    };
+
 
     return (
         <div className="form">
