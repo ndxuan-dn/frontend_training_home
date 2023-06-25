@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Sidebar from "./components/Sidebar";
 import Students from "./components/Students";
 import Items from "./components/Items";
+import Products from "./components/Products";
 
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
                         <Routes>
                             <Route path="/students" element={<Students/>}></Route>
                             <Route path="/items" element={<Items/>}></Route>
+                            <Route path="/products" element={<Products/>}></Route>
                         </Routes>
                     </div>
                 </div>

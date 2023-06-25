@@ -37,3 +37,20 @@
     background-color: red;
 }
 
+
+
+.menuDrop {
+
+}
+
+.menuDrop ul {
+    transition-duration: 5000ms;
+    height: 0;
+    overflow: hidden;
+}
+
+.menuDrop ul.openMenu {
+    min-height: 160px;
+    max-height: 200px;
+    overflow-y: auto;
+}
