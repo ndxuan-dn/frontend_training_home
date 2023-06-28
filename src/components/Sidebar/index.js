@@ -26,6 +26,9 @@ export default function Sidebar () {
                     <li>
                         <Link to="/students">Students</Link>
                     </li>
+                    <li>
+                        <Link to="/chats">Go Chat</Link>
+                    </li>
                 </ul>
 
                 <div className="CartSection">

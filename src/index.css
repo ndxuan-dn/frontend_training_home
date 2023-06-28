@@ -54,3 +54,7 @@
     max-height: 200px;
     overflow-y: auto;
 }
+
+.sign-in img {
+    width: 240px;
+}
