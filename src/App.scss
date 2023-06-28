@@ -1,2 +1,101 @@
+@import "./modules/scss/variables.scss";
 @import "./components/Sidebar/Sidebar";
-@import "./components/Form/Form"
+@import "./components/Form/Form";
+@import "./pages/Modal/Modal";
+@import "./pages/Users/Users";
+
+
+.students-manager {
+    header {
+        width: calc(100% - 281px);
+        position: fixed;
+        right: 0;
+        top: 0;
+        flex-shrink: 0;
+        z-index: 1100;
+        left: auto;
+        // color: rgb(255, 255, 255);
+        background-color: rgba(249, 250, 251, 0.8);
+        box-shadow: none;
+        
+        .wrapper {
+            min-height: 92px;
+            padding: 0 40px;
+
+            display: flex;
+            align-items: center;
+            .search-icon {
+                .btn-search {
+                    border: none;
+                    background-color: transparent;
+                }
+            }
+            .search-input {
+                flex: 1;
+            }
+
+            .controls {
+
+                display: flex;
+                align-items: center;
+                width: 160px;
+                justify-content: space-between;
+                .lang {
+                    button {
+                        padding: 16px;
+                        border-radius: 50%;
+                        border: none;
+                        outline: none;
+                        background-color: transparent;
+                    }
+                }
+                .noti {
+                    button {
+                        padding: 16px;
+                        border-radius: 50%;
+                        border: none;
+                        outline: none;
+                        background-color: transparent;
+                    }
+                }
+                .account {
+                    
+                    button {
+                        border: none;
+                        overflow: hidden;
+                        outline: none;
+                        background-color: transparent;
+                        .avatar {
+                            .image-wrapper {
+                                border-radius: 50%;
+                                width: 40px;
+                                height: 40px;
+                                overflow: hidden;
+                                .image {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+    }
+}
+
+.contents {
+    
+    position: fixed;
+    width: calc(100% - 281px);
+    right: 0;
+    top: 92px;
+    left: auto;
+    height: calc(100% - 92px);
+
+    .contents-wrapper {
+        padding: 28px;
+        
+    }
+}

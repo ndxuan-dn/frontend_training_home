@@ -1,27 +1,30 @@
-import axios from "axios";
-import { createStudentsSync } from "../../modules/redux/reducers";
-import { useForm } from "react-hook-form"
-import { useDispatch } from "react-redux";
-
+import { useForm } from "react-hook-form";
+const data = ["name", "company", "role"];
 
 export default function Form() {
-    const dispath = useDispatch();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm()
+  const inputRegister = data.map((item) => (
+    <input defaultValue="" {...register(item)} />
+  ));
 
-    const onSubmit = (data) => {
-        dispath(createStudentsSync(data))
-    };
+  const onSubmit = (data) => {};
 
-
-    return (
-        <div className="form">
-            <form id="form" onSubmit={handleSubmit(onSubmit)}>
-                <label htmlFor="name">Name</label>
-                <input defaultValue="" {...register("name")}/>
-                <button>Submit</button>
-            </form>
-            
-        </div>
-    )
+  
+  return (
+    <div>
+      <div className="form">
+        <form id="form" onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="name">Name</label>
+          <input defaultValue="" {...register("name")} />
+          <button>Submit</button>
+        </form>
+      </div>
+    </div>
+  );
 }

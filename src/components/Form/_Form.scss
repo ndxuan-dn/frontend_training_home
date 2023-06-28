@@ -1,25 +1,89 @@
+// @import "../../modules/scss/variables.scss";
+
+
 .form {
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
+    width: 720px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    padding: 1.2rem;
+    box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
 
-    form#form {
-        display: flex;
+    form#add-new-user-form {
+        display: grid;
+        gap: 24px 16px;
+        grid-template-columns: repeat(2, 1fr);
+    } 
 
-        label {
-            padding: 1rem;
+    .controls {
+        margin-top: 24px;
+        button.btn.btn-create-user {
+            color: $white-color;
+            background-color: $text-black;
         }
-
-        input {
-            flex: 1;
-            padding: 1rem;
-            text-align: right;
-            border: none;
-            outline: none;
-        }
-
-        button {
-            padding: 0 24px;
-            border: none;
-        } 
     }
+}
+
+
+
+.input-group {
+
+    display: inline-flex;
+    position: relative;
+    label {
+        color: $text-gray;
+        padding: 0 0.1rem;
+        background-color: white;
+        position: absolute;
+        left: 16px;
+        font-size: 0.875rem;
+        font-weight: 400;
+        pointer-events: none;
+        transform: translateY(0.875rem);
+        transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    input {
+        border: 1px solid #e3e3e3;
+        outline: none;
+        width: 100%;
+        border-radius: 0.5rem;
+        background: none;
+        padding: 1rem;
+        font-size: 0.875rem;
+        font-weight: 400;
+        transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            border-color: $secondary-color;
+        }
+
+        &:focus {
+            outline: none;
+            border: 1px solid $primary-color;
+            ~ label {
+                color: $text-black;
+                font-weight: 700; 
+                transform: translateY(-50%) scale(0.8);
+                padding: 0 0.1rem;
+            }
+        }
+
+        
+
+    
+    }
+
+    input.typing {
+        outline: none;
+            border: 1px solid $primary-color;
+            ~ label {
+                color: $text-black;
+                font-weight: 700;
+                transform: translateY(-50%) scale(0.8);
+            }
+    }
+
+    
+
+    
 }

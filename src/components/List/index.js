@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getAllStudentsSync } from "../../modules/redux/reducers";
 
-import Item from "../Item"
+import Item from "../User"
 
 
 

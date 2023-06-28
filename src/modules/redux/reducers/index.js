@@ -86,7 +86,7 @@ export const studentsSlice = createSlice({
     }
 })
 
-export const { getAllStudents, createStudents } = studentsSlice.actions;
+// export const { getAllStudents, createStudents } = studentsSlice.actions;
 
 
 
