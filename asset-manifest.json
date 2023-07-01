@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/frontend_training_home/static/css/main.2f320103.css",
+    "main.js": "/frontend_training_home/static/js/main.bcc9e147.js",
+    "static/js/787.633816a4.chunk.js": "/frontend_training_home/static/js/787.633816a4.chunk.js",
+    "static/media/googleLoginBtn.png": "/frontend_training_home/static/media/googleLoginBtn.6c3cb83d689e77d90a3f.png",
+    "index.html": "/frontend_training_home/index.html",
+    "main.2f320103.css.map": "/frontend_training_home/static/css/main.2f320103.css.map",
+    "main.bcc9e147.js.map": "/frontend_training_home/static/js/main.bcc9e147.js.map",
+    "787.633816a4.chunk.js.map": "/frontend_training_home/static/js/787.633816a4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f320103.css",
+    "static/js/main.bcc9e147.js"
+  ]
+}
